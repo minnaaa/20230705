@@ -23,8 +23,9 @@
                 alert("서버가 응답하지 않습니다");
                 location.href="index.html";
             }
-            console.log(result);
-
+            printContacts(result.contacts)
+            const pagination = getPagination(result);
+            printPagination(pagination);
         })
     </script>
 </head>
@@ -38,7 +39,20 @@
     </nav>
     <main>
         <aside></aside>
-        <section></section>
+        <section>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>이름</th>
+                        <th>연락처</th>
+                        <th>주소</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody"></tbody>
+            </table>
+            <ul class="pagination" id="pagination" style="display:flex; justify-content: center;"></ul>
+        </section>
         <aside></aside>
     </main>
     <footer>
